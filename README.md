@@ -72,8 +72,8 @@ Phase 5 adds seed data, and if needed, refactoring of code.
 - Searching improvements - can allow to search by artist or song name.
 - Add more features to annotations - images, youtube/soundcloud links, etc
 
-[phase-one]: #
-[phase-two]: #
-[phase-three]: #
+[phase-one]: ./phases/phase1.md
+[phase-two]: ./phases/phase2.md
+[phase-three]: ./phases/phase3.md
 [phase-four]: #
 [phase-five]: #
