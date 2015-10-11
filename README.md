@@ -19,7 +19,7 @@ React.js. AnnotateMe allows users to:
 * [DB Schema] [schema]
 
 [view]: #
-[schema]: #
+[schema]: ./docs/schema.md
 
 ## Implementation Timeline
 
@@ -70,6 +70,7 @@ Phase 5 adds seed data, and if needed, refactoring of code.
 - Users can follow each other.
 - Artists have their own page, and can be followed.
 - Searching improvements - can allow to search by artist or song name.
+- Add more features to annotations - images, youtube/soundcloud links, etc
 
 [phase-one]: #
 [phase-two]: #
