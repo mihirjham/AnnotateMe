@@ -18,7 +18,7 @@ React.js. AnnotateMe allows users to:
 * [View Wireframes] [view]
 * [DB Schema] [schema]
 
-[view]: #
+[view]: ./docs/view.md
 [schema]: ./docs/schema.md
 
 ## Implementation Timeline
