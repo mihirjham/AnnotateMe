@@ -6,5 +6,5 @@
 ##New session
 ![new-session]
 
-[new-user]: ./docs/views/sign_up.png
-[new-session]: ./docs/views/sign_in.png
+[new-user]: ./views/sign_up.png
+[new-session]: ./views/sign_in.png
