@@ -14,12 +14,14 @@
 ### Views (React Components)
 * AnnotationItem
 * AnnotationForm
+* SearchForm
 
 ### Stores
 * Annotations
 
 ### Actions
 * ApiActions.receiveAllAnnotationsForSong
+* ApiActions.receiveMatchingSongs
 * ApiActions.receiveAnnotationsForUser
 * ApiActions.deleteAnnotation
 

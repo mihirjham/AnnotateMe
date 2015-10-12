@@ -12,6 +12,7 @@
 * SongsIndex
   - SongsIndexItem
 * SongForm
+* UserItem
 
 ### Stores
 * Song
