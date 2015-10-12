@@ -60,7 +60,6 @@ for songs will be implemented as well.
 
 Phase 4 adds the highlighting feature of Genius for annotating the lyrics.
 
-[Details] [phase-four]
 ### Phase 5: Seeding and final clean-up
 
 Phase 5 adds seed data, and if needed, refactoring of code.
@@ -75,5 +74,3 @@ Phase 5 adds seed data, and if needed, refactoring of code.
 [phase-one]: ./phases/phase1.md
 [phase-two]: ./phases/phase2.md
 [phase-three]: ./phases/phase3.md
-[phase-four]: #
-[phase-five]: #
