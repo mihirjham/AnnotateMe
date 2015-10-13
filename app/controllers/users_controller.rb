@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include UsersHelper
+  before_action :redirect_if_logged_in, only: [:new, :create]
 
   def new
     @user = User.new
@@ -10,7 +11,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user
+      login!(@user)
+      redirect_to "/"
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
