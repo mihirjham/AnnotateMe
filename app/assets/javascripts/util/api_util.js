@@ -10,6 +10,41 @@
           ApiActions.receiveAllSongs(responseData);
         }
       });
+    },
+
+    createSong: function(song){
+      $.ajax({
+        url: "/api/songs",
+        type: "post",
+        dataType: "json",
+        data: {song: song},
+        success: function(responseData){
+          ApiActions.receiveSong(responseData);
+        }
+      });
+    },
+
+    fetchSong: function(id){
+      $.ajax({
+        url: "/api/songs/" + id.toString(),
+        type: "get",
+        dataType: "json",
+        success: function(responseData){
+          ApiActions.receiveSong(responseData);
+        }
+      });
+    },
+
+    editSong: function(id, changes){
+      $.ajax({
+        url: "/api/songs/" + id.toString(),
+        type: "patch",
+        dataType: "json",
+        data: {song: changes},
+        success: function(responseData){
+          ApiActions.receiveSong(responseData);
+        }
+      });
     }
   };
 }(this));
