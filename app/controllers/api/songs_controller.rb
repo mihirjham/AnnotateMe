@@ -12,7 +12,7 @@ class Api::SongsController < ApplicationController
     if @song.save
       render :index
     else
-      render json: errors: {@song.errors.full_messages}, status: 422
+      render json: {errors: @song.errors.full_messages}, status: 422
     end
   end
 
