@@ -32,7 +32,7 @@
             <div>
               <label>
                 Lyrics:
-                <textArea valueLink={this.linkState("lyrics")}/>
+                <textarea valueLink={this.linkState("lyrics")} />
               </label>
             </div>
 

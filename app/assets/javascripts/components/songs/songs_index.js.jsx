@@ -16,8 +16,11 @@
     _onChange: function(){
       this.setState({songs: SongStore.all()});
     },
-    handleClick: function(song){
+    handleItemClick: function(song){
       this.history.pushState(null, "/songs/" + song.id.toString());
+    },
+    handleButtonClick: function(){
+      this.history.pushState(null, "/songs/new");
     },
     render: function(){
       return(
@@ -26,10 +29,11 @@
           <ul>
             {
               this.state.songs.map(function(song){
-                return <li onClick={this.handleClick.bind(null, song)} key={song.id}>{song.name}</li>;
+                return <li onClick={this.handleItemClick.bind(null, song)} key={song.id}>{song.name}</li>;
               }.bind(this))
             }
           </ul>
+          <button onClick={this.handleButtonClick}>Add Song</button>
         </div>
       );
     }
