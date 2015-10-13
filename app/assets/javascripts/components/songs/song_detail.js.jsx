@@ -23,7 +23,9 @@
           <div>
             Lyrics
             <div>
-              {this.state.song.lyrics}
+              <pre>
+                {this.state.song.lyrics}
+              </pre>
             </div>
           </div>
         </div>
