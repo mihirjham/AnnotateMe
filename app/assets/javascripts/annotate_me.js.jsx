@@ -17,6 +17,7 @@ $(document).ready(function(){
     <Router>
       <Route path="/" component={App}>
         <IndexRoute component={SongsIndex}/>
+        <Route path="songs/new" component={SongForm} />
         <Route path="songs/:id" component={SongDetail} />
       </Route>
     </Router>,
