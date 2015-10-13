@@ -13,7 +13,7 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 name            | string    | not null
-album_id        | integer   | not null, foreign key(references album), indexed
+album_id        | integer   | foreign key(references album), indexed
 release_date    | date      |
 
 ##albums
