@@ -148,7 +148,7 @@ So I'ma break it down and put my game in a song
 N-E-G-U-S, say it with me
 Or say no more. Black stars can come and get me
 Take it from Oprah Winfrey, tell her she right on time
-Kendrick Lamar, by far, realest Negus alive", release_date: "2015-03-12"
+Kendrick Lamar, by far, realest Negus alive
 SONG
 
 wesley_lyrics = <<-SONG
