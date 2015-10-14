@@ -2,6 +2,7 @@
   'use strict';
 
   var SongDetail = root.SongDetail = React.createClass({
+    mixins: [ReactRouter.History],
     getInitialState: function(){
       return {song: {}};
     },
@@ -14,6 +15,9 @@
     },
     _onChange: function(){
       this.setState({song: SongStore.getSongById(parseInt(this.props.params.id))});
+    },
+    handleEdit: function(){
+      this.history.pushState(null, "/songs/" + this.props.params.id + "/edit");
     },
     render: function(){
       return(
@@ -28,6 +32,7 @@
               </pre>
             </div>
           </div>
+          <button onClick={this.handleEdit}>Edit Song</button>
         </div>
       );
     }

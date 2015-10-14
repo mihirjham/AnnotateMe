@@ -19,6 +19,7 @@ $(document).ready(function(){
         <IndexRoute component={SongsIndex}/>
         <Route path="songs/new" component={SongForm} />
         <Route path="songs/:id" component={SongDetail} />
+        <Route path="songs/:id/edit" component={SongForm} />
       </Route>
     </Router>,
     document.getElementById("content"));
