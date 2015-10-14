@@ -12,7 +12,7 @@ var App = React.createClass({
   }
 });
 
-$(document).ready(function(){
+var startApp = function(){
   React.render(
     <Router>
       <Route path="/" component={App}>
@@ -23,4 +23,4 @@ $(document).ready(function(){
       </Route>
     </Router>,
     document.getElementById("content"));
-});
+};
