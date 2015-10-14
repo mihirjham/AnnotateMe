@@ -8,6 +8,7 @@ class Api::SongsController < ApplicationController
     else
       @songs = Song.all
     end
+    @songs.includes(:annotations)
     render :index
   end
 

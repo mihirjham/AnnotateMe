@@ -14,6 +14,12 @@
 class Song < ActiveRecord::Base
   validates :name, :lyrics, presence: true
 
+  has_many :annotations,
+    class_name: "Annotation",
+    foreign_key: :song_id,
+    primary_key: :id,
+    dependent: :destroy
+
   def self.find_by_substring(str)
     Song.where("LOWER(name) LIKE '%#{str.downcase}%'");
   end

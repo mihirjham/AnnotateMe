@@ -17,6 +17,18 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
+  has_many :annotations,
+    class_name: "Annotation",
+    foreign_key: :user_id,
+    primary_key: :id,
+    dependent: :destroy
+
+  has_many :annotated_songs, through: :annotations,
+    class_name: "Song",
+    foreign_key: :song_id,
+    primary_key: :id,
+    source: :song
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)
