@@ -8,7 +8,7 @@ class Api::SongsController < ApplicationController
     else
       @songs = Song.all
     end
-    @songs.includes(:annotations)
+
     render :index
   end
 
@@ -16,7 +16,7 @@ class Api::SongsController < ApplicationController
     @song = Song.new(song_params)
 
     if @song.save
-      render @song
+      render :show
     else
       render json: {errors: @song.errors.full_messages}, status: 422
     end

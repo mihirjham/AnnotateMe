@@ -39,14 +39,21 @@
       if (selectedText !== '') {
       }
     },
+    handleAnnotationClick: function(annotation){
+      console.log("Annotation: " + annotation.annotation);
+    },
     formatText: function(lyrics){
       if(this.state.song.lyrics){
         var formattedText = this.state.song.lyrics.slice().split("");
-        
+
         for(var i = 0; i < this.state.song.annotations.length; i++){
-          var anchor = <a>{formattedText.slice(this.state.song.annotations[i].start, this.state.song.annotations[i].end).join("")}</a>;
-          formattedText.splice(this.state.song.annotations[i].start,
-                              this.state.song.annotations[i].end - this.state.song.annotations[i].start,
+          var annotation = this.state.song.annotations[i];
+          var anchor = <a onClick={this.handleAnnotationClick.bind(null, annotation)} key={annotation.id}>
+                        {formattedText.slice(annotation.start, annotation.end).join("")}
+                      </a>;
+
+          formattedText.splice(annotation.start,
+                              annotation.end - annotation.start,
                               anchor);
         }
 
@@ -56,7 +63,6 @@
     render: function(){
       return(
         <div>
-          {<a>link</a>}
           <div>Name: {this.state.song.name}</div>
           <div>Released on {this.state.song.release_date}</div>
           <div>
