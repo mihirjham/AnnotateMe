@@ -13,6 +13,9 @@
     componentWillUnmount: function(){
       SongStore.removeChangeListener(this._onChange);
     },
+    componentWillReceiveProps: function(){
+      ApiUtil.fetchSong(parseInt(this.props.params.id));
+    },
     _onChange: function(){
       this.setState({song: SongStore.getSongById(parseInt(this.props.params.id))});
     },
