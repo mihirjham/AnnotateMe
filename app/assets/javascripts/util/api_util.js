@@ -45,6 +45,23 @@
           ApiActions.receiveSong(responseData);
         }
       });
+    },
+
+    fetchSongsByString: function(str){
+      if(str !== ""){
+        $.ajax({
+          url: "api/songs",
+          type: "get",
+          dataType: "json",
+          data: {search: str},
+          success: function(responseData){
+            ApiActions.receiveSearchedSongs(responseData);
+          }
+        });
+      }
+      else{
+        ApiActions.receiveSearchedSongs([]);
+      }
     }
   };
 }(this));

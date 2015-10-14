@@ -16,6 +16,15 @@
       };
 
       AppDispatcher.dispatch(action);
+    },
+
+    receiveSearchedSongs: function(songs){
+      var action = {
+        actionType: SearchConstants.RECEIVED_SEARCHED_SONGS,
+        songs: songs
+      };
+
+      AppDispatcher.dispatch(action);
     }
   };
 }(this));

@@ -9,7 +9,7 @@
     render: function(){
 
       var dropdown = <li className="dropdown">
-        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
+        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{CURRENT_USER_EMAIL}<span className="caret"></span></a>
         <ul className="dropdown-menu">
           <li><a href="">Profile</a></li>
           <li role="separator" className="divider"></li>
@@ -31,10 +31,10 @@
               </div>
 
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
                 <ul className="nav navbar-nav navbar-right">
                   {dropdown}
                 </ul>
+                <Search />
               </div>
             </div>
           </nav>

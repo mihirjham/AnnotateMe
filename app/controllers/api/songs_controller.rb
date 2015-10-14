@@ -3,7 +3,11 @@ class Api::SongsController < ApplicationController
   before_action :redirect_if_logged_out, only: [:create, :update]
 
   def index
-    @songs = Song.all
+    if(params[:search])
+      @songs = Song.find_by_substring(params[:search])
+    else
+      @songs = Song.all
+    end
     render :index
   end
 
