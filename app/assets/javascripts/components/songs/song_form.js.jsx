@@ -42,10 +42,10 @@
             </div>
 
             <div>
-              <label>
-                Lyrics:
-                <textarea valueLink={this.linkState("lyrics")} />
-              </label>
+              <label>Lyrics: </label>
+              <div>
+                <textarea rows="20" cols="100" valueLink={this.linkState("lyrics")} />
+              </div>
             </div>
 
             <div>
