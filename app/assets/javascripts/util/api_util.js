@@ -62,6 +62,18 @@
       else{
         ApiActions.receiveSearchedSongs([]);
       }
+    },
+
+    createAnnotation: function(id, annotation){
+      $.ajax({
+        url: "/api/songs/" + id.toString() + "/annotations",
+        type: "post",
+        dataType: "json",
+        data: {annotation: annotation},
+        success: function(responseData){
+          ApiActions.receiveAnnotation(responseData);
+        }
+      });
     }
   };
 }(this));

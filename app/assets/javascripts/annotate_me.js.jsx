@@ -19,7 +19,9 @@ var startApp = function(){
       <Route path="/" component={App}>
         <IndexRoute component={SongsIndex}/>
         <Route path="songs/new" component={SongForm} />
-        <Route path="songs/:id" component={SongDetail} />
+          <Route path="songs/:songId" component={SongDetail}>
+            <Route path="annotations/:annotationId" component={AnnotationDetail}/>
+          </Route>
         <Route path="songs/:id/edit" component={SongForm} />
       </Route>
     </Router>,

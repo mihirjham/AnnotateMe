@@ -25,6 +25,15 @@
       };
 
       AppDispatcher.dispatch(action);
+    },
+
+    receiveAnnotation: function(song){
+      var action = {
+        actionType: SongConstants.RECEIVED_SONG,
+        song: song
+      };
+
+      AppDispatcher.dispatch(action);
     }
   };
 }(this));

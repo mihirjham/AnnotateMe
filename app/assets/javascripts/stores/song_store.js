@@ -35,6 +35,15 @@
         }
       }
     },
+    findAnnotation: function(id){
+      for(var i = 0; i < _songs.length; i++){
+        for(var j = 0; j < _songs[i].annotations.length; i++){
+          if(_songs[i].annotations[j].id === id){
+            return _songs[i].annotations[j];
+          }
+        }
+      }
+    },
     dispatcherID: AppDispatcher.register(function(payload){
       switch(payload.actionType){
         case SongConstants.RECEIVED_SONGS:

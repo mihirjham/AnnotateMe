@@ -25,19 +25,19 @@
     },
     componentDidMount: function(){
       SongStore.addChangeListener(this._onChange);
-      ApiUtil.fetchSong(parseInt(this.props.params.id));
+      ApiUtil.fetchSong(parseInt(this.props.params.songId));
     },
     componentWillUnmount: function(){
       SongStore.removeChangeListener(this._onChange);
     },
     componentWillReceiveProps: function(){
-      ApiUtil.fetchSong(parseInt(this.props.params.id));
+      ApiUtil.fetchSong(parseInt(this.props.params.songId));
     },
     _onChange: function(){
-      this.setState({song: SongStore.getSongById(parseInt(this.props.params.id))});
+      this.setState({song: SongStore.getSongById(parseInt(this.props.params.songId))});
     },
     handleEdit: function(){
-      this.history.pushState(null, "/songs/" + this.props.params.id + "/edit");
+      this.history.pushState(null, "/songs/" + this.props.params.songId + "/edit");
     },
     handleSelect: function(e){
       var userSelection;
@@ -69,13 +69,15 @@
       }
     },
     handleAnnotationClick: function(annotation){
-      console.log("Annotation: " + annotation.annotation);
+      this.history.pushState(null, "/songs/" + this.props.params.songId + "/annotations/" + annotation.id);
     },
     formatText: function(){
+        $(".lyrics").empty();
         var lyrics = this.state.song.lyrics.split("");
-        debugger;
+
         var annotationIndex = [];
         var annotationCount = 0;
+
         for(var i = 0; i < this.state.song.annotations.length; i++){
           annotationIndex.push(this.state.song.annotations[i].start_index);
         }
@@ -103,7 +105,6 @@
           }
         }
     },
-
     componentDidUpdate: function () {
       this.formatText();
     },
@@ -119,6 +120,7 @@
               </pre>
             </div>
           </div>
+          {this.props.children}
           <button onClick={this.handleEdit}>Edit Song</button>
         </div>
       );
