@@ -4,9 +4,9 @@ class Api::SongsController < ApplicationController
 
   def index
     if(params[:search])
-      @songs = Song.find_by_substring(params[:search])
+      @songs = Song.includes(:annotations).find_by_substring(params[:search])
     else
-      @songs = Song.all
+      @songs = Song.includes(:annotations).all
     end
 
     render :index
@@ -14,6 +14,7 @@ class Api::SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
+    @annotations = @song.annotations.sort {|annotation| annotation.start_index}
 
     if @song.save
       render :show
@@ -23,10 +24,11 @@ class Api::SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
+    @song = Song.includes(:annotations).find(params[:id])
+    @annotations = @song.annotations.sort {|annotation| annotation.start_index}
 
     if @song
-      render @song
+      render :show
     else
       render json: {errors: "No such song"}, status: 422
     end

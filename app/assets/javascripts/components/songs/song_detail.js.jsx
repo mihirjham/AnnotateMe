@@ -2,20 +2,20 @@
   'use strict';
 
     var isSubString = function(haystack, needle){
-    for(var i = 0; i < haystack.length; i++){
-      var j = i;
-      var k = 0;
+      for(var i = 0; i < haystack.length; i++){
+        var j = i;
+        var k = 0;
 
-      while(haystack[j] === needle[k] && j < haystack.length && k < needle.length){
-        j++;
-        k++;
-      }
+        while(haystack[j] === needle[k] && j < haystack.length && k < needle.length){
+          j++;
+          k++;
+        }
 
-      if(k === needle.length){
-        return i;
+        if(k === needle.length){
+          return i;
+        }
       }
-    }
-    return -1;
+      return -1;
   };
 
   var SongDetail = root.SongDetail = React.createClass({
@@ -63,7 +63,7 @@
           startIndex = endIndex;
           endIndex = temp;
         }
-        
+
         console.log("StartIndex: " + startIndex);
         console.log("EndIndex: ", endIndex);
       }
