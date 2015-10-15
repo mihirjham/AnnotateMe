@@ -64,8 +64,6 @@
           endIndex = temp;
         }
 
-        console.log("StartIndex: " + startIndex);
-        console.log("EndIndex: ", endIndex);
         this.history.pushState(null, "/songs/"+this.props.params.songId +
                                     "/annotations/new",
                                     {start_index: startIndex, end_index: endIndex});
