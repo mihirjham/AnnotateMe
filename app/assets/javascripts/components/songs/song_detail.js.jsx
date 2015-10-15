@@ -49,11 +49,11 @@
         for(var i = 0; i < this.state.song.annotations.length; i++){
           var annotation = this.state.song.annotations[i];
           var anchor = <a onClick={this.handleAnnotationClick.bind(null, annotation)} key={annotation.id}>
-                        {formattedText.slice(annotation.start, annotation.end).join("")}
+                        {formattedText.slice(annotation.start_index, annotation.end_index).join("")}
                       </a>;
 
-          formattedText.splice(annotation.start,
-                              annotation.end - annotation.start,
+          formattedText.splice(annotation.start_index,
+                              annotation.end_index - annotation.start_index,
                               anchor);
         }
 

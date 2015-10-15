@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 20151014214852) do
   enable_extension "plpgsql"
 
   create_table "annotations", force: :cascade do |t|
-    t.integer  "song_id",    null: false
-    t.integer  "user_id",    null: false
-    t.integer  "start",      null: false
-    t.integer  "end",        null: false
-    t.text     "annotation", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "song_id",     null: false
+    t.integer  "user_id",     null: false
+    t.integer  "start_index", null: false
+    t.integer  "end_index",   null: false
+    t.text     "annotation",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "annotations", ["song_id"], name: "index_annotations_on_song_id", using: :btree
