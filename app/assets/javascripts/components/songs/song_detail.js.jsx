@@ -73,7 +73,7 @@
     },
     formatText: function(){
         var lyrics = this.state.song.lyrics.split("");
-
+        debugger;
         var annotationIndex = [];
         var annotationCount = 0;
         for(var i = 0; i < this.state.song.annotations.length; i++){

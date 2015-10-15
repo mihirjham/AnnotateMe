@@ -14,7 +14,7 @@ class Api::SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-    @annotations = @song.annotations.sort {|annotation| annotation.start_index}
+    @annotations = @song.annotations.order(:start_index)
 
     if @song.save
       render :show
@@ -25,7 +25,7 @@ class Api::SongsController < ApplicationController
 
   def show
     @song = Song.includes(:annotations).find(params[:id])
-    @annotations = @song.annotations.sort {|annotation| annotation.start_index}
+    @annotations = @song.annotations.order(:start_index)
 
     if @song
       render :show
