@@ -1,6 +1,23 @@
 (function(root) {
   'use strict';
 
+    var isSubString = function(haystack, needle){
+    for(var i = 0; i < haystack.length; i++){
+      var j = i;
+      var k = 0;
+
+      while(haystack[j] === needle[k] && j < haystack.length && k < needle.length){
+        j++;
+        k++;
+      }
+
+      if(k === needle.length){
+        return i;
+      }
+    }
+    return -1;
+  };
+
   var SongDetail = root.SongDetail = React.createClass({
     mixins: [ReactRouter.History],
     getInitialState: function(){
@@ -37,7 +54,18 @@
       }
 
       if (selectedText.toString() !== '') {
-        debugger;
+        var relativeIndex = isSubString(this.state.song.lyrics, selectedText.anchorNode.data);
+        var startIndex = relativeIndex + selectedText.anchorOffset;
+        var endIndex = relativeIndex + selectedText.focusOffset;
+
+        if(endIndex < startIndex){
+          var temp  = startIndex;
+          startIndex = endIndex;
+          endIndex = temp;
+        }
+        
+        console.log("StartIndex: " + startIndex);
+        console.log("EndIndex: ", endIndex);
       }
     },
     handleAnnotationClick: function(annotation){
