@@ -26,9 +26,11 @@
       return(
         <div>
           Annotation:
-          {
-            this.state.annotation.annotation
-          }
+          <pre>
+            {
+              this.state.annotation.annotation
+            }
+          </pre>
         </div>
       );
     }
