@@ -22,7 +22,9 @@
         <div>
           <form onSubmit={this.handleSubmit}>
             <div>
-              <textarea placeholder="Say something interesting" valueLink={this.linkState("annotation")}/>
+              <textarea placeholder="Say something interesting"
+                        rows="10" cols = "50"
+                        valueLink={this.linkState("annotation")}/>
             </div>
             <input type="submit" value="Save"/>
           </form>
