@@ -3,11 +3,10 @@
 
   var AnnotationDetail = root.AnnotationDetail = React.createClass({
     getInitialState: function(){
-      return this.getStateFromStore();
+      return {annotation: this.getStateFromStore()};
     },
     getStateFromStore: function(){
-      var annotation = SongStore.findAnnotation(parseInt(this.props.params.annotationId));
-      return {annotation: annotation};
+      return SongStore.findAnnotation(parseInt(this.props.params.songId), parseInt(this.props.params.annotationId));
     },
     componentDidMount: function(){
       SongStore.addChangeListener(this._onChange);
@@ -17,12 +16,16 @@
       SongStore.removeChangeListener(this._onChange);
     },
     componentWillReceiveProps: function(newProps){
-      ApiUtil.fetchSong(parseInt(newProps.params.songId));
+      ApiUtil.fetchSong(parseInt(this.props.params.songId));
     },
     _onChange: function(){
-      this.setState(this.getStateFromStore());
+      this.setState({annotation: this.getStateFromStore()});
     },
     render: function(){
+      if(this.state.annotation === undefined){
+        return(<div></div>);
+      }
+
       return(
         <div>
           Annotation:

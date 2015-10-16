@@ -35,11 +35,12 @@
         }
       }
     },
-    findAnnotation: function(id){
-      for(var i = 0; i < _songs.length; i++){
-        for(var j = 0; j < _songs[i].annotations.length; i++){
-          if(_songs[i].annotations[j].id === id){
-            return _songs[i].annotations[j];
+    findAnnotation: function(id, annotationId){
+      var song = this.getSongById(id);
+      if(song){
+        for(var i = 0; i < song.annotations.length; i++){
+          if(song.annotations[i].id === annotationId){
+            return song.annotations[i];
           }
         }
       }
