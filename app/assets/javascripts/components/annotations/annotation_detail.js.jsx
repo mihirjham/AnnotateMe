@@ -2,6 +2,7 @@
   'use strict';
 
   var AnnotationDetail = root.AnnotationDetail = React.createClass({
+    mixins: [ReactRouter.History],
     getInitialState: function(){
       return {annotation: this.getStateFromStore()};
     },
@@ -21,6 +22,9 @@
     _onChange: function(){
       this.setState({annotation: this.getStateFromStore()});
     },
+    handleEdit: function(){
+      this.history.pushState(null, "/songs/" + this.props.params.songId + "/annotations/" + this.props.params.annotationId + "/edit");
+    },
     render: function(){
       if(this.state.annotation === undefined){
         return(<div></div>);
@@ -28,12 +32,13 @@
 
       return(
         <div classname="col-md-6 annotation-div">
-          Annotation:
+          Annotation by {this.state.annotation.email}:
           <pre className="annotation">
             {
               this.state.annotation.annotation
             }
           </pre>
+          {CURRENT_USER === this.state.annotation.user_id ? <button onClick={this.handleEdit}>Edit</button> : ""}
         </div>
       );
     }

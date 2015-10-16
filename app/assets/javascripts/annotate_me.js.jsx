@@ -24,6 +24,8 @@ var startApp = function(){
                components={{song:SongDetail, form:AnnotationForm}}/>
         <Route path="songs/:songId/annotations/:annotationId"
                components={{song: SongDetail, annotation: AnnotationDetail}}/>
+        <Route path="songs/:songId/annotations/:annotationId/edit"
+              components={{song: SongDetail, annotation: AnnotationForm}}/>
         <Route path="songs/:id/edit" component={SongForm} />
       </Route>
     </Router>,

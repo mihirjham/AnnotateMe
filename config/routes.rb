@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :songs, only: [:create, :update, :index, :show] do
       resources :annotations, only: [:create]
     end
+    resources :annotations, only: [:update, :destroy]
   end
 end

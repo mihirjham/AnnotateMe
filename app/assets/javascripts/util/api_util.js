@@ -74,6 +74,18 @@
           ApiActions.receiveAnnotation(responseData);
         }
       });
+    },
+
+    editAnnotation: function(id, changes){
+      $.ajax({
+        url: "/api/annotations/" + id.toString(),
+        type: "patch",
+        dataType: "json",
+        data: {annotation: changes},
+        success: function(responseData){
+          ApiActions.receiveAnnotation(responseData);
+        }
+      });
     }
   };
 }(this));

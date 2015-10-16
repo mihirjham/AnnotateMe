@@ -1,1 +1,1 @@
-json.partial! "/api/songs/song", song: @song, annotations: @annotations
+json.partial! "/api/songs/song", song: @song, annotations: @annotations.includes(:user)

@@ -6,15 +6,30 @@
     getInitialState: function(){
       return {song_id: "", start_index: "", end_index: "", annotation: ""};
     },
+    componentDidMount: function(){
+      if(this.props.params.annotationId){
+        ApiUtil.fetchSong(parseInt(this.props.params.songId));
+        var annotation = SongStore.findAnnotation(parseInt(this.props.params.songId), parseInt(this.props.params.annotationId));
+        this.setState({song_id: annotation.song_id,
+                      start_index: annotation.start_index,
+                      end_index: annotation.end_index,
+                      annotation: annotation.annotation});
+      }
+    },
     handleSubmit: function(){
-      var newAnnotation = {
-        song_id: this.props.params.songId,
-        start_index: this.props.location.query.start_index,
-        end_index: this.props.location.query.end_index,
-        annotation: this.state.annotation
-      };
+      if(this.props.params.annotationId){
+        ApiUtil.editAnnotation(this.props.params.annotationId, this.state);
+      }
+      else{
+        var newAnnotation = {
+          song_id: this.props.params.songId,
+          start_index: this.props.location.query.start_index,
+          end_index: this.props.location.query.end_index,
+          annotation: this.state.annotation
+        };
 
-      ApiUtil.createAnnotation(this.props.params.songId, newAnnotation);
+        ApiUtil.createAnnotation(this.props.params.songId, newAnnotation);
+      }
       this.history.pushState(null, "/songs/" + this.props.params.songId);
      },
     render: function(){
