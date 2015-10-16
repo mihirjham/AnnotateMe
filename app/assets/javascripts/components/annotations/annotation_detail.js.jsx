@@ -27,9 +27,9 @@
       }
 
       return(
-        <div>
+        <div classname="col-md-6">
           Annotation:
-          <pre>
+          <pre className="annotation">
             {
               this.state.annotation.annotation
             }

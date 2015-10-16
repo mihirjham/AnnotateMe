@@ -111,7 +111,7 @@
     },
     render: function(){
       return(
-        <div>
+        <div className="col-md-6">
           <div>Name: {this.state.song.name}</div>
           <div>Released on {this.state.song.release_date}</div>
           <div>
@@ -122,7 +122,6 @@
             </div>
           </div>
           <button onClick={this.handleEdit}>Edit Song</button>
-          {this.props.children}
         </div>
       );
     }

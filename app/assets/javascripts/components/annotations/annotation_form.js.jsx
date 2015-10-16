@@ -19,7 +19,7 @@
      },
     render: function(){
       return(
-        <div>
+        <div className="col-md-6">
           <form onSubmit={this.handleSubmit}>
             <div>
               <textarea placeholder="Say something interesting"

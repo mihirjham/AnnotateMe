@@ -5,7 +5,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var App = React.createClass({
   render: function(){
     return(
-      <div>
+      <div className="row">
         <Navbar />
         {this.props.children}
       </div>
@@ -19,10 +19,11 @@ var startApp = function(){
       <Route path="/" component={App}>
         <IndexRoute component={SongsIndex}/>
         <Route path="songs/new" component={SongForm} />
-          <Route path="songs/:songId" component={SongDetail}>
-            <Route path="annotations/new" component={AnnotationForm}/>
-            <Route path="annotations/:annotationId" component={AnnotationDetail}/>
-          </Route>
+        <Route path="songs/:songId" component={SongDetail} />
+        <Route path="songs/:songId/annotations/new"
+               components={{song:SongDetail, form:AnnotationForm}}/>
+        <Route path="songs/:songId/annotations/:annotationId"
+               components={{song: SongDetail, annotation: AnnotationDetail}}/>
         <Route path="songs/:id/edit" component={SongForm} />
       </Route>
     </Router>,
