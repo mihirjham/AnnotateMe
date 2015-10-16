@@ -117,8 +117,8 @@
           <div>
             Lyrics
             <div onMouseUp={this.handleSelect}>
-              <pre className="lyrics">
-              </pre>
+              <p className="lyrics">
+              </p>
             </div>
           </div>
           <button onClick={this.handleEdit}>Edit Song</button>

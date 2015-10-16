@@ -27,7 +27,7 @@
       }
 
       return(
-        <div classname="col-md-6">
+        <div classname="col-md-6 annotation-div">
           Annotation:
           <pre className="annotation">
             {
