@@ -86,6 +86,16 @@
           ApiActions.receiveAnnotation(responseData);
         }
       });
+    },
+
+    deleteAnnotation: function(id){
+      $.ajax({
+        url: "/api/annotations/" + id.toString(),
+        type: "delete",
+        success: function(responseData){
+          ApiActions.receiveSong(responseData);
+        }
+      });
     }
   };
 }(this));

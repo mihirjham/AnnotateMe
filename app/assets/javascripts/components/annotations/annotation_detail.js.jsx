@@ -25,6 +25,10 @@
     handleEdit: function(){
       this.history.pushState(null, "/songs/" + this.props.params.songId + "/annotations/" + this.props.params.annotationId + "/edit");
     },
+    handleDelete: function(){
+      ApiUtil.deleteAnnotation(this.props.params.annotationId);
+      this.history.pushState(null, "/songs/" + this.props.params.songId);
+    },
     render: function(){
       if(this.state.annotation === undefined){
         return(<div></div>);
@@ -39,6 +43,7 @@
             }
           </pre>
           {CURRENT_USER === this.state.annotation.user_id ? <button onClick={this.handleEdit}>Edit</button> : ""}
+          {CURRENT_USER === this.state.annotation.user_id ? <button onClick={this.handleDelete}>Delete</button> : ""}
         </div>
       );
     }

@@ -29,8 +29,8 @@ class Api::AnnotationsController < ApplicationController
   def destroy
     @annotation = Annotation.find(params[:id])
 
-    if @annotation.destroy
-      @song = Song.includes(:annotations).find(params[:song_id])
+    if @annotation.user == current_user && @annotation.destroy
+      @song = @annotation.song
       @annotations = @song.annotations.order(:start_index)
       render :show
     else
