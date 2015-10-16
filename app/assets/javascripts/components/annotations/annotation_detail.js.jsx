@@ -35,14 +35,14 @@
       }
 
       return(
-        <div classname="col-md-6 annotation-div">
+        <div className="col-md-6 annotation-div">
           Annotation by {this.state.annotation.email}:
           <pre className="annotation">
             {
               this.state.annotation.annotation
             }
           </pre>
-          {CURRENT_USER === this.state.annotation.user_id ? <button onClick={this.handleEdit}>Edit</button> : ""}
+          {CURRENT_USER === this.state.annotation.user_id ? <button onClick={this.handleEdit}>Edit</button> : ""} 
           {CURRENT_USER === this.state.annotation.user_id ? <button onClick={this.handleDelete}>Delete</button> : ""}
         </div>
       );
