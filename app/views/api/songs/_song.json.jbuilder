@@ -1,4 +1,4 @@
-json.extract! song, :id, :name, :lyrics, :album_id, :release_date, :created_at, :updated_at
+json.extract! song, :id, :name, :lyrics, :artist_id, :album_id, :release_date, :created_at, :updated_at
 
 json.annotations do
   json.array! annotations do |annotation|

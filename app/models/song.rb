@@ -9,6 +9,7 @@
 #  release_date :date
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  artist_id    :integer          not null
 #
 
 class Song < ActiveRecord::Base
@@ -20,6 +21,12 @@ class Song < ActiveRecord::Base
     primary_key: :id,
     dependent: :destroy
 
+  belongs_to :artist,
+    class_name: "Artist",
+    foreign_key: :artist_id,
+    primary_key: :id
+
+  
   def self.find_by_substring(str)
     Song.where("LOWER(name) LIKE '%#{str.downcase}%'");
   end

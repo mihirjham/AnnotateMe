@@ -24,9 +24,9 @@ class Api::SongsController < ApplicationController
   end
 
   def show
-    @song = Song.includes(:annotations).find(params[:id])
+    @song = Song.includes(:annotations, :artist).find(params[:id])
     @annotations = @song.annotations.order(:start_index)
-
+    
     if @song
       render :show
     else

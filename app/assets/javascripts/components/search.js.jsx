@@ -28,7 +28,7 @@
       return(
         <div className="navbar-form navbar-left" role="search">
           <div className="form-group">
-            <input onChange={this.handleChange} type="text" className="form-control" placeholder="Search" value={this.state.searchString}/>
+            <input onChange={this.handleChange} type="text" className="form-control" placeholder="Search for songs" value={this.state.searchString}/>
           </div>
           <div>
             <ul>

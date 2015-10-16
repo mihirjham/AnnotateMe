@@ -96,6 +96,41 @@
           ApiActions.receiveSong(responseData);
         }
       });
+    },
+
+    fetchArist: function(id){
+      $.ajax({
+        url: "/api/artists/" + id.toString(),
+        type: "get",
+        dataType: "json",
+        success: function(responseData){
+          ApiActions.receiveArtists([responseData]);
+        }
+      });
+    },
+
+    fetchArtistsByName: function(name){
+      $.ajax({
+        url: "/api/artists",
+        type: "get",
+        dataType: "json",
+        data: {name: name},
+        success: function(responseData){
+          ApiActions.receiveArtists(responseData);
+        }
+      });
+    },
+
+    createArtist: function(artist){
+      $.ajax({
+        url: "/api/artists",
+        type: "post",
+        dataType: "json",
+        data: {artist: artist},
+        success: function(responseData){
+          ApiActions.receiveArtists([responseData]);
+        }
+      });
     }
   };
 }(this));

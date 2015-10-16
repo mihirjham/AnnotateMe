@@ -34,6 +34,14 @@
       };
 
       AppDispatcher.dispatch(action);
+    },
+    receiveArtists: function(artists){
+      var action = {
+        actionType: ArtistConstants.RECEIVED_ARTISTS,
+        artists: artists
+      };
+
+      AppDispatcher.dispatch(action);
     }
   };
 }(this));
