@@ -113,6 +113,7 @@
       return(
         <div className="col-md-6">
           <div>Name: {this.state.song.name}</div>
+          <div>Artist: {this.state.song.artist_name}</div>
           <div>Released on {this.state.song.release_date}</div>
           <div>
             Lyrics

@@ -13,10 +13,13 @@ class Api::SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(song_params)
-    @annotations = @song.annotations.order(:start_index)
+    @artist = Artist.find_by(name: params[:artist_name])
+    @artist = Artist.create!(name: params[:artist_name]) unless @artist
+
+    @song = @artist.songs.new(song_params)
 
     if @song.save
+      @annotations = @song.annotations.order(:start_index)
       render :show
     else
       render json: {errors: @song.errors.full_messages}, status: 422
@@ -26,7 +29,7 @@ class Api::SongsController < ApplicationController
   def show
     @song = Song.includes(:annotations, :artist).find(params[:id])
     @annotations = @song.annotations.order(:start_index)
-    
+
     if @song
       render :show
     else
@@ -37,8 +40,18 @@ class Api::SongsController < ApplicationController
   def update
     @song = Song.find(params[:id])
 
+    @artist = Artist.find_by(name: params[:artist_name])
+    @artist = Artist.create!(name: params[:artist_name]) unless @artist
+
+    if @song.artist != @artist
+      @song.destroy!
+      create
+      return
+    end
+
     if @song.update(song_params)
-      render @song
+      @annotations = @song.annotations.order(:start_index)
+      render :show
     else
       render json: {errors: @song.errors.full_messages}, status: 422
     end

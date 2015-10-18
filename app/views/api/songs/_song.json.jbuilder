@@ -5,3 +5,5 @@ json.annotations do
     json.partial! "/api/annotations/annotation", annotation: annotation
   end
 end
+
+json.artist_name song.artist.name

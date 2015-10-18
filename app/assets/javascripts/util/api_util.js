@@ -12,18 +12,17 @@
       });
     },
 
-    createSong: function(song){
-      $.ajax({
-        url: "/api/songs",
-        type: "post",
-        dataType: "json",
-        data: {song: song},
-        success: function(responseData){
-          ApiActions.receiveSong(responseData);
-        }
-      });
+    createSong: function(song, artist_name){
+        $.ajax({
+          url: "/api/songs",
+          type: "post",
+          dataType: "json",
+          data: {song: song, artist_name: artist_name},
+          success: function(responseData){
+            ApiActions.receiveSong(responseData);
+          }
+        });
     },
-
     fetchSong: function(id){
       $.ajax({
         url: "/api/songs/" + id.toString(),
@@ -35,12 +34,12 @@
       });
     },
 
-    editSong: function(id, changes){
+    editSong: function(id, changes, artist_name){
       $.ajax({
         url: "/api/songs/" + id.toString(),
         type: "patch",
         dataType: "json",
-        data: {song: changes},
+        data: {song: changes, artist_name: artist_name},
         success: function(responseData){
           ApiActions.receiveSong(responseData);
         }
@@ -110,15 +109,20 @@
     },
 
     fetchArtistsByName: function(name){
-      $.ajax({
-        url: "/api/artists",
-        type: "get",
-        dataType: "json",
-        data: {name: name},
-        success: function(responseData){
-          ApiActions.receiveArtists(responseData);
-        }
-      });
+      if(name !== ""){
+        return $.ajax({
+          url: "/api/artists",
+          type: "get",
+          dataType: "json",
+          data: {name: name},
+          success: function(responseData){
+            ApiActions.receiveArtists(responseData);
+          }
+        });
+      }
+      else{
+        ApiActions.receiveArtists([]);
+      }
     },
 
     createArtist: function(artist){
