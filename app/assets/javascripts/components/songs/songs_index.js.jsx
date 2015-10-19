@@ -24,12 +24,13 @@
     },
     render: function(){
       return(
-        <div className="navbar navbar-default">
-          Songs
-          <ul>
+        <div className="song_column">
+          <ul className="song_list">
             {
               this.state.songs.map(function(song){
-                return <li onClick={this.handleItemClick.bind(null, song)} key={song.id}>{song.name}</li>;
+                return <li key={song.id}>
+                    <a onClick={this.handleItemClick.bind(null, song)} >{song.name} by {song.artist_name}</a>
+                  </li>;
               }.bind(this))
             }
           </ul>

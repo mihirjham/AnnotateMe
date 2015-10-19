@@ -27,9 +27,9 @@
       return(
         <div>
           <div><h1>{this.state.artist.name}</h1></div>
-          <div>
+          <div className="song_column">
             Songs
-            <ul>
+            <ul className="song_list">
               {
                 this.state.artist.songs.map(function(song){
                   return <li key={song.id}><a onClick={this.handleClick.bind(null, song)}>{song.name}</a></li>;

@@ -182,3 +182,38 @@ h1.title_and_authors{
   background-color: #626262;
   font-size: 14px;
 }
+
+.song_column{
+  float: left;
+  margin-right: 5%;
+  width: 55%;
+}
+
+.song_list{
+  list-style: disc outside;
+}
+
+.song_list li{
+  margin: 0;
+  list-style: none;
+  border-bottom: 1px solid #1E1E1E;
+  position: relative;
+  clear: both;
+}
+
+.song_list li > a{
+    padding: 9px 0 7px;
+    float: left;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.song_list li > a:hover{
+  transition: .15s all;
+  display: block;
+  max-width: 96%;
+  border-left: 3px solid #ffff64;
+  padding-left: 10px;
+}
