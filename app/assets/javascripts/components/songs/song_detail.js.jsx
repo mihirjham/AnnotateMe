@@ -106,6 +106,9 @@
           }
         }
     },
+    handleArtistClick: function(id){
+      this.history.pushState(null, "/artists/" + id.toString());
+    },
     componentDidUpdate: function () {
       this.formatText();
     },
@@ -113,7 +116,7 @@
       return(
         <div className="col-md-6">
           <div>Name: {this.state.song.name}</div>
-          <div>Artist: {this.state.song.artist_name}</div>
+          <div>Artist: <a onClick={this.handleArtistClick.bind(null, this.state.song.artist_id)}>{this.state.song.artist_name}</a></div>
           <div>Released on {this.state.song.release_date}</div>
           <div>
             Lyrics

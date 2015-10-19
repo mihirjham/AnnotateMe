@@ -27,6 +27,7 @@ var startApp = function(){
         <Route path="songs/:songId/annotations/:annotationId/edit"
               components={{song: SongDetail, annotation: AnnotationForm}}/>
         <Route path="songs/:id/edit" component={SongForm} />
+        <Route path="artists/:id" component={ArtistDetail} />
       </Route>
     </Router>,
     document.getElementById("content"));
