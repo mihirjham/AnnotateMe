@@ -36,4 +36,5 @@ class Annotation < ActiveRecord::Base
         errors[:base] << "Annotation exists!"
       end
     end
+
 end

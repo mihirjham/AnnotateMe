@@ -115,12 +115,15 @@
     render: function(){
       return(
         <div className="col-md-6">
-          <div>Name: {this.state.song.name}</div>
-          <div>Artist: <a onClick={this.handleArtistClick.bind(null, this.state.song.artist_id)}>{this.state.song.artist_name}</a></div>
-          <div>Released on {this.state.song.release_date}</div>
-          <div>
-            Lyrics
-            <div onMouseUp={this.handleSelect}>
+          <div className="song_info">
+            <h1 className="title_and_authors">
+              <span className="title">Name: {this.state.song.name}</span>
+              <span className="type">Lyrics</span>
+              <div className="artist"><a onClick={this.handleArtistClick.bind(null, this.state.song.artist_id)}>{this.state.song.artist_name}</a></div>
+            </h1>
+          </div>
+          <div className="song_body">
+            <div className="lyrics-container" onMouseUp={this.handleSelect}>
               <p className="lyrics">
               </p>
             </div>
