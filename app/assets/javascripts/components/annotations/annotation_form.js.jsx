@@ -34,10 +34,11 @@
      },
     render: function(){
       return(
-        <div className="col-md-6">
+        <div className="col-md-6 annotation-container">
           <form onSubmit={this.handleSubmit}>
             <div>
-              <textarea placeholder="Say something interesting"
+              <textarea className="annotation-form"
+                        placeholder="Say something interesting"
                         rows="10" cols = "50"
                         valueLink={this.linkState("annotation")}/>
             </div>

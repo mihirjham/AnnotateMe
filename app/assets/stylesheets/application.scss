@@ -172,3 +172,13 @@ h1.title_and_authors{
   margin-bottom: 10px;
   padding-bottom: 4px;
 }
+
+.annotation-form{
+  overflow: hidden;
+  word-wrap: break-word;
+  resize: none;
+  height: 200px;
+  color: #ccc;
+  background-color: #626262;
+  font-size: 14px;
+}
