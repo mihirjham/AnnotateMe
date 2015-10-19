@@ -121,6 +121,11 @@ h1.title_and_authors{
   color: #000;
 }
 
+.lyrics a.selected{
+  background-color: #ffff64;
+  color: #000;
+}
+
 .annotation{
   font: 400 .9em Whitney,sans-serif;
   white-space: pre-wrap;

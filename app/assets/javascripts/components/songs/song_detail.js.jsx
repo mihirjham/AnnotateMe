@@ -87,7 +87,13 @@
           if(annotationIndex.indexOf(i) !== -1){
             var annotation = this.state.song.annotations[annotationCount];
             var text = this.state.song.lyrics.slice(annotation.start_index, annotation.end_index);
-            var $anchor = $("<a></a>");
+            var $anchor;
+            if(parseInt(this.props.params.annotationId) === annotation.id){
+              $anchor = $("<a class='selected'></a>");
+            }
+            else{
+              $anchor = $("<a></a>");
+            }
             $anchor.html(text);
             $anchor.on("click", this.handleAnnotationClick.bind(null, annotation));
             $(".lyrics").append($anchor);
