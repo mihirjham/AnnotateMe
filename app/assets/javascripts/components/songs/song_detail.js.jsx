@@ -117,7 +117,7 @@
         <div className="col-md-6">
           <div className="song_info">
             <h1 className="title_and_authors">
-              <span className="title">Name: {this.state.song.name}</span>
+              <span className="title">{this.state.song.name}</span>
               <span className="type">Lyrics</span>
               <div className="artist"><a onClick={this.handleArtistClick.bind(null, this.state.song.artist_id)}>{this.state.song.artist_name}</a></div>
             </h1>

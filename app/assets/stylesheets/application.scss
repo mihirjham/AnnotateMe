@@ -126,7 +126,44 @@ h1.title_and_authors{
   white-space: pre-wrap;
 }
 
+.annotation-container{
+  color: #aaa;
+  font: 400 .9em Whitney,sans-serif;
+  position: fixed;
+  right: 100px;
+  width: 400px;
+  z-index: 6;
+  border-left: 1px solid #ffff64;
+}
+
 .song_body{
   float: left;
   width: 580px;
+}
+
+.annotation-unit-label{
+  color: #aaa;
+  display: block;
+  margin: 0 0 .8rem;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.annotation-label{
+  color: #ffff64;
+}
+
+.contributor-label{
+  border-bottom: 1px solid #777;
+  color: #aaa;
+  float: right;
+}
+
+.annotation p{
+  clear: both;
+  color: #ccc;
+  font-size: 15px;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
 }

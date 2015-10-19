@@ -33,15 +33,19 @@
       if(this.state.annotation === undefined){
         return(<div></div>);
       }
-
       return(
         <div className="col-md-6 annotation-container">
-          Annotation by {this.state.annotation.email}:
-          <pre className="annotation">
-            {
-              this.state.annotation.annotation
-            }
-          </pre>
+          <div className="annotation-unit-label">
+            <span className="annotation-label">Annotation</span>
+            <span className="contributor-label">{this.state.annotation.email}</span>
+          </div>
+          <div className="annotation">
+            <p>
+              {
+                this.state.annotation.annotation
+              }
+            </p>
+          </div>
           {CURRENT_USER === this.state.annotation.user_id ? <button onClick={this.handleEdit}>Edit</button> : ""}
           {CURRENT_USER === this.state.annotation.user_id ? <button onClick={this.handleDelete}>Delete</button> : ""}
         </div>
