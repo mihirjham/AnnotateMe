@@ -158,6 +158,18 @@
           ApiActions.receiveUser(responseData);
         }
       });
+    },
+
+    editUser: function(id, changes){
+      $.ajax({
+        url: "/api/users/" + id.toString(),
+        type: "patch",
+        dataType: "json",
+        data: {user: changes},
+        success: function(responseData){
+          ApiActions.receiveUser(responseData);
+        }
+      });
     }
   };
 }(this));
