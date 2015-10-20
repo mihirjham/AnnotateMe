@@ -227,3 +227,13 @@ h1.title_and_authors{
 .artist_image_upload_button{
   float: right;
 }
+
+.contributor-label > a{
+  text-decoration: none;
+  color: #ccc;
+}
+
+.contributor-label > a:hover{
+  text-decoration: none;
+  color: #fff;
+}

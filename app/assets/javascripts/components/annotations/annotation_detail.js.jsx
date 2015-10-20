@@ -29,6 +29,9 @@
       ApiUtil.deleteAnnotation(this.props.params.annotationId);
       this.history.pushState(null, "/songs/" + this.props.params.songId);
     },
+    handleUserClick: function(){
+      this.history.pushState(null, "/users/" + this.state.annotation.user_id);
+    },
     render: function(){
       if(this.state.annotation === undefined){
         return(<div></div>);
@@ -37,7 +40,7 @@
         <div className="col-md-6 annotation-container">
           <div className="annotation-unit-label">
             <span className="annotation-label">Annotation</span>
-            <span className="contributor-label">{this.state.annotation.email}</span>
+            <span className="contributor-label"><a className=""onClick={this.handleUserClick}>{this.state.annotation.email}</a></span>
           </div>
           <div className="annotation">
             <p>
