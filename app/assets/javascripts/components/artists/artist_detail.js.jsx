@@ -28,7 +28,7 @@
       if(this.state.artist === undefined){
         return <div></div>;
       }
-      var uploadButton = <button style={{float: "right"}} onClick={this.handleUpload}>Upload Picture</button>;
+      var uploadButton = <button className="artist_image_upload_button" onClick={this.handleUpload}>Upload Picture</button>;
       var img = <img className="artist_image" src={this.state.artist.cloudinary_url}/>;
 
       return(
