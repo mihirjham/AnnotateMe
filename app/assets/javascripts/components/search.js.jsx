@@ -34,7 +34,9 @@
             <ul>
               {
                 this.state.searchResults.map(function(result){
-                  return <li key={result.id} onClick={this.handleClick.bind(null, result)}>{result.name}</li>;
+                  return <li key={result.id}>
+                    <a onClick={this.handleClick.bind(null, result)}>{result.artist_name} - {result.name}</a>
+                  </li>;
                 }.bind(this))
               }
             </ul>
