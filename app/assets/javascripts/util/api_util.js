@@ -147,6 +147,17 @@
           ApiActions.receiveArtists([responseData]);
         }
       });
+    },
+
+    fetchUser: function(id){
+      $.ajax({
+        url: "/api/users/" + id.toString(),
+        type: "get",
+        dataType: "json",
+        success: function(responseData){
+          ApiActions.receiveUser(responseData);
+        }
+      });
     }
   };
 }(this));

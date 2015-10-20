@@ -42,6 +42,14 @@
       };
 
       AppDispatcher.dispatch(action);
+    },
+    receiveUser: function(user){
+      var action = {
+        actionType: UserConstants.RECEIVED_USER,
+        user: user
+      };
+
+      AppDispatcher.dispatch(action);
     }
   };
 }(this));

@@ -13,12 +13,15 @@
     handleNewSong: function(){
       this.history.pushState(null, "/songs/new");
     },
+    handleProfileClick: function(){
+      this.history.pushState(null, "/users/" + window.CURRENT_USER);
+    },
     render: function(){
 
       var dropdown = <li className="dropdown">
         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{CURRENT_USER_EMAIL}<span className="caret"></span></a>
         <ul className="dropdown-menu">
-          <li><a href="">Profile</a></li>
+          <li><a onClick={this.handleProfileClick}>Profile</a></li>
           <li role="separator" className="divider"></li>
           <li><a onClick={this.handleNewSong}>Add Song</a></li>
           <li role="separator" className="divider"></li>

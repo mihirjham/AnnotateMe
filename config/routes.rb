@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end
     resources :annotations, only: [:update, :destroy]
     resources :artists, only: [:create, :show, :index, :update]
+    resources :users, only: [:show, :update]
   end
 end
