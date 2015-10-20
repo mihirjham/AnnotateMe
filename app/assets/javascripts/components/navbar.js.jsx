@@ -10,6 +10,9 @@
     handleLogoClick: function(){
       this.history.pushState(null, "/");
     },
+    handleNewSong: function(){
+      this.history.pushState(null, "/songs/new");
+    },
     render: function(){
 
       var dropdown = <li className="dropdown">
@@ -17,7 +20,10 @@
         <ul className="dropdown-menu">
           <li><a href="">Profile</a></li>
           <li role="separator" className="divider"></li>
+          <li><a onClick={this.handleNewSong}>Add Song</a></li>
+          <li role="separator" className="divider"></li>
           <li><a onClick={this.handleSignOut}>Sign Out</a></li>
+
         </ul>
       </li>;
 

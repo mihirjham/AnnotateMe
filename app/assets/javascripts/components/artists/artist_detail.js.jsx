@@ -19,14 +19,24 @@
     handleClick: function(song){
       this.history.pushState(null, "/songs/" + song.id.toString());
     },
+    handleUpload: function(){
+      cloudinary.openUploadWidget({cloud_name: window.CLOUD_NAME, upload_preset: window.UPLOAD_PRESET}, function(error, result){
+        ApiUtil.editArtist(this.props.params.id, {cloudinary_url: result[0].secure_url});
+      }.bind(this));
+    },
     render: function(){
-
       if(this.state.artist === undefined){
         return <div></div>;
       }
+      var uploadButton = <button style={{float: "right"}} onClick={this.handleUpload}>Upload Picture</button>;
+      var img = <img className="artist_image" src={this.state.artist.cloudinary_url}/>;
+
       return(
         <div>
           <div><h1>{this.state.artist.name}</h1></div>
+          <div>
+            {this.state.artist.cloudinary_url === null ? uploadButton : img }
+          </div>
           <div className="song_column">
             Songs
             <ul className="song_list">

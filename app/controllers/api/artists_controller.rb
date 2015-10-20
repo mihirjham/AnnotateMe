@@ -24,4 +24,14 @@ class Api::ArtistsController < ApplicationController
     @artist = Artist.includes(songs: [:annotations]).find(params[:id])
     render :show
   end
+
+  def update
+    @artist = Artist.includes(songs: [:annotations]).find(params[:id])
+
+    if @artist.update(artist_params)
+      render :show
+    else
+      render json: {errors: @artist.errors.full_messages}, status: 422
+    end
+  end
 end

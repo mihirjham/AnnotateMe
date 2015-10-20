@@ -7,6 +7,6 @@ Rails.application.routes.draw do
       resources :annotations, only: [:create]
     end
     resources :annotations, only: [:update, :destroy]
-    resources :artists, only: [:create, :show, :index]
+    resources :artists, only: [:create, :show, :index, :update]
   end
 end

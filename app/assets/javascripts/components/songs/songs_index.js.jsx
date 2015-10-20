@@ -19,9 +19,6 @@
     handleItemClick: function(song){
       this.history.pushState(null, "/songs/" + song.id.toString());
     },
-    handleButtonClick: function(){
-      this.history.pushState(null, "/songs/new");
-    },
     render: function(){
       return(
         <div className="song_column">
@@ -34,7 +31,6 @@
               }.bind(this))
             }
           </ul>
-          <button onClick={this.handleButtonClick}>Add Song</button>
         </div>
       );
     }

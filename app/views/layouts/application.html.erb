@@ -5,12 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <script src="http://widget.cloudinary.com/global/all.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
   <% if current_user %>
     <script>
       window.CURRENT_USER = <%= current_user.id %>;
       window.CURRENT_USER_EMAIL = "<%= current_user.email %>";
+      window.CLOUD_NAME = "<%= ENV["CLOUD_NAME"] %>";
+      window.UPLOAD_PRESET = "<%= ENV["UPLOAD_PRESET"] %>";
     </script>
   <% end %>
 </head>

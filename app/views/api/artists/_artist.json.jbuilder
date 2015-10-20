@@ -1,4 +1,4 @@
-json.extract! artist, :id, :name, :created_at, :updated_at
+json.extract! artist, :id, :name, :cloudinary_url, :created_at, :updated_at
 
 json.songs do
   json.array! artist.songs do |song|

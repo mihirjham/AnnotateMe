@@ -135,6 +135,18 @@
           ApiActions.receiveArtists([responseData]);
         }
       });
+    },
+
+    editArtist: function(id, artist){
+      $.ajax({
+        url: "/api/artists/" + id.toString(),
+        type: "patch",
+        dataType: "json",
+        data: {artist: artist},
+        success: function(responseData){
+          ApiActions.receiveArtists([responseData]);
+        }
+      });
     }
   };
 }(this));
