@@ -70,7 +70,7 @@
       }
     },
     handleAnnotationClick: function(annotation){
-      this.history.pushState(null, "/songs/" + this.props.params.songId + "/annotations/" + annotation.id);
+      this.history.pushState(null, "/songs/" + this.props.params.songId + "/annotations/" + annotation.id, {pageYOffset: window.pageYOffset});
     },
     formatText: function(){
         $(".lyrics").empty();
@@ -110,6 +110,10 @@
             $(".lyrics").append(unannotated);
             i--;
           }
+        }
+
+        if(this.props.params.annotationId){
+          window.scrollTo(0, parseInt(this.props.location.query.pageYOffset));
         }
     },
     handleArtistClick: function(id){
