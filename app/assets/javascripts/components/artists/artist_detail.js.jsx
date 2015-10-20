@@ -21,7 +21,6 @@
     },
     handleUpload: function(){
       cloudinary.openUploadWidget({cloud_name: window.CLOUD_NAME, upload_preset: window.UPLOAD_PRESET}, function(error, result){
-        console.log(error);
         ApiUtil.editArtist(this.props.params.id, {cloudinary_url: result[0].secure_url});
       }.bind(this));
     },
