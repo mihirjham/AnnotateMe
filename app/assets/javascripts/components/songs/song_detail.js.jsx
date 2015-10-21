@@ -68,7 +68,8 @@
                                     "/annotations/new",
                                     {start_index: startIndex,
                                      end_index: endIndex,
-                                     snippet: this.state.song.lyrics.substring(startIndex, endIndex)
+                                     snippet: this.state.song.lyrics.substring(startIndex, endIndex),
+                                     pageYOffset: window.pageYOffset
                                     });
       }
     },
@@ -115,7 +116,7 @@
           }
         }
 
-        if(this.props.params.annotationId){
+        if(this.props.location.query.pageYOffset){
           window.scrollTo(0, parseInt(this.props.location.query.pageYOffset));
         }
     },

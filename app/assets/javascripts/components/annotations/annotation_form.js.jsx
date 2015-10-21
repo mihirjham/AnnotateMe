@@ -36,6 +36,9 @@
     render: function(){
       return(
         <div className="col-md-6 annotation-container">
+          <blockquote>
+            <p>{this.props.location.query.snippet}</p>
+          </blockquote>
           <form onSubmit={this.handleSubmit}>
             <div>
               <textarea className="annotation-form"
