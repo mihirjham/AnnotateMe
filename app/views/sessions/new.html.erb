@@ -17,3 +17,4 @@
 
   <input type="submit" value="Sign in!">
 </form>
+<%= button_to "Demo User Sign In", {controller: "sessions", action: "create", user: {email: "demo@demo.com", password: "password"}}%>
