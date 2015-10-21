@@ -861,9 +861,7 @@ This hype man was first heard on the intro of the version of “i” that was re
 We got a young brother that stands for something! / We got a young brother that believes in the all of us! / Brother Kendrick Lamar! He’s not a rapper, he’s a writer, he’s an author! / And if you read between the lines, we’ll learn how to love one another! / But you can’t do that — right on! — I said, you can’t do that without loving yourself first.
 These words foreshadow what we find out to be one of the central themes of To Pimp a Butterfly: Kendrick doesn’t want to be portrayed (or perceived) as a rapper or associated with the lifestyle thereof; rather, he wants to set an example by standing up for what he believes in, and give positive energy to all who hear his music.
 
-Additionally, one of the most important phrases in the hype man’s lines on this track is, “He done travelled all over the world. He came back to give you some game.” This reveals that Kendrick is apparently back in his hometown, Compton, giving this performance, which gives more import and meaning to the fight that breaks out in the show and what Kendrick tells the crowd to calm them. Kendrick is doing what he talked about in “Another Nigga,” the poem running through the whole album:
-
-Made me wanna go back to the city and tell the homies what I learned / The word was respect / Just because you wore a different gang colour than mine’s / Doesn’t mean I can’t respect you as a black man
+Additionally, one of the most important phrases in the hype man’s lines on this track is, “He done travelled all over the world. He came back to give you some game.” This reveals that Kendrick is apparently back in his hometown, Compton, giving this performance, which gives more import and meaning to the fight that breaks out in the show and what Kendrick tells the crowd to calm them.
 ANNOTATION
 
 snippet= <<-SNIPPET
