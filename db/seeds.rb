@@ -853,7 +853,7 @@ kendrick.songs.create!(name: "Institutionalized", lyrics: institutionalized_lyri
 kendrick.songs.create!(name: "These Walls", lyrics: walls_lyrics ,release_date: "2015-03-16");
 kendrick.songs.create!(name: "u", lyrics: u_lyrics ,release_date: "2015-03-16");
 kendrick.songs.create!(name: "Alright", lyrics: alright_lyrics ,release_date: "2015-03-16");
-i = kendrick.songs.create!(name: "i", lyrics: i_lyrics ,release_date: "2015-03-16");
+i = kendrick.songs.create!(name: "i", lyrics: i_lyrics ,release_date: "2015-03-16", song_url: "https://www.youtube.com/watch?v=8aShfolR6w8");
 
 annotation = <<-ANNOTATION
 This hype man was first heard on the intro of the version of “i” that was released on TDE’s SoundCloud page in September 2014, but deleted shortly after the song was released as an official single on iTunes. He also appears on the music video. The intro below was cut from the iTunes version, unfortunately, but it does fit with the message of Kendrick’s album.
