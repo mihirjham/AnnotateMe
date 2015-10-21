@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(email: "demo@demo.com", password: "password")
+demo = User.create!(email: "demo@demo.com", password: "password", cloudinary_url: "https://res.cloudinary.com/annotate-me/image/upload/v1445388996/yqwumq4f05nuel43c61v.jpg")
 
 i_lyrics = <<-SONG
 [Produced by Rahki]​​​​​​​​​​​​​​​​​​​
@@ -844,7 +844,7 @@ The evils of Lucy was all around me
 So I went runnin' for answers
 SONG
 
-kendrick = Artist.create!(name: "Kendrick Lamar")
+kendrick = Artist.create!(name: "Kendrick Lamar", cloudinary_url: "https://res.cloudinary.com/annotate-me/image/upload/v1445388531/je8bqypajcoyd8btn68c.jpg")
 
 kendrick.songs.create!(name: "Wesley's Theory", lyrics: wesley_lyrics ,release_date: "2015-03-16");
 kendrick.songs.create!(name: "For Free?(Interlude)", lyrics: free_lyrics ,release_date: "2015-03-16");
@@ -853,4 +853,32 @@ kendrick.songs.create!(name: "Institutionalized", lyrics: institutionalized_lyri
 kendrick.songs.create!(name: "These Walls", lyrics: walls_lyrics ,release_date: "2015-03-16");
 kendrick.songs.create!(name: "u", lyrics: u_lyrics ,release_date: "2015-03-16");
 kendrick.songs.create!(name: "Alright", lyrics: alright_lyrics ,release_date: "2015-03-16");
-kendrick.songs.create!(name: "i", lyrics: i_lyrics ,release_date: "2015-03-16");
+i = kendrick.songs.create!(name: "i", lyrics: i_lyrics ,release_date: "2015-03-16");
+
+annotation = <<-ANNOTATION
+This hype man was first heard on the intro of the version of “i” that was released on TDE’s SoundCloud page in September 2014, but deleted shortly after the song was released as an official single on iTunes. He also appears on the music video. The intro below was cut from the iTunes version, unfortunately, but it does fit with the message of Kendrick’s album.
+
+We got a young brother that stands for something! / We got a young brother that believes in the all of us! / Brother Kendrick Lamar! He’s not a rapper, he’s a writer, he’s an author! / And if you read between the lines, we’ll learn how to love one another! / But you can’t do that — right on! — I said, you can’t do that without loving yourself first.
+These words foreshadow what we find out to be one of the central themes of To Pimp a Butterfly: Kendrick doesn’t want to be portrayed (or perceived) as a rapper or associated with the lifestyle thereof; rather, he wants to set an example by standing up for what he believes in, and give positive energy to all who hear his music.
+
+Additionally, one of the most important phrases in the hype man’s lines on this track is, “He done travelled all over the world. He came back to give you some game.” This reveals that Kendrick is apparently back in his hometown, Compton, giving this performance, which gives more import and meaning to the fight that breaks out in the show and what Kendrick tells the crowd to calm them. Kendrick is doing what he talked about in “Another Nigga,” the poem running through the whole album:
+
+Made me wanna go back to the city and tell the homies what I learned / The word was respect / Just because you wore a different gang colour than mine’s / Doesn’t mean I can’t respect you as a black man
+ANNOTATION
+
+snippet= <<-SNIPPET
+[Hype Man]
+Is this mic on? (Hey, move this way, this way)
+Hey, Hey! Hey! Turn the mic up, c'mon, c'mon
+Is the mic on or not? I want the mic
+We're bringing up nobody, nobody...
+Nobody but the number one rapper in the world
+He done traveled all over the world
+He came back just to give you some game
+All of the little boys and girls, come up here
+(One two, one two, what's happening, fool?)
+Come right here, this is for you, come on up
+Kendrick Lamar, make some noise, brother
+SNIPPET
+
+demo.annotations.create!(annotation: annotation, snippet: snippet, start_index: 92, end_index: 566, song: i)
