@@ -2,6 +2,7 @@
   'use strict';
 
   var UserDetail = root.UserDetail = React.createClass({
+    mixins: [ReactRouter.History],
     getInitialState: function(){
       return {user: UserStore.currentUser()};
     },
@@ -22,6 +23,9 @@
       cloudinary.openUploadWidget({cloud_name: window.CLOUD_NAME, upload_preset: window.UPLOAD_PRESET}, function(error, result){
         ApiUtil.editUser(this.props.params.id, {cloudinary_url: result[0].secure_url});
       }.bind(this));
+    },
+    handleSongClick: function(annotation){
+      this.history.pushState(null, "/songs/" + annotation.song_id.toString());
     },
     render: function(){
       if(this.state.user === undefined){
@@ -58,11 +62,11 @@
                 {
                   this.state.user.annotations.map(function(annotation){
                     return(
-                      <div className="annotation-feed-item">
+                      <div key={annotation.id} className="annotation-feed-item">
                         <blockquote>
                           <p>{annotation.snippet}</p>
                           <footer>
-                            {annotation.song_name} by {this.state.user.email}
+                            <a onClick={this.handleSongClick.bind(null, annotation)}>{annotation.song_name}</a> by {this.state.user.email}
                           </footer>
                         </blockquote>
                         <p className="annotation-feed-annotation">
