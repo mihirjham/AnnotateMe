@@ -48,13 +48,33 @@
             <div className="user_email"><h1>{this.state.user.email}</h1></div>
           </div>
           <div className="user_activity">
-            <ul>
-              {
-                this.state.user.annotations.map(function(annotation){
-                  return <li key={annotation.id}>{annotation.annotation} on {annotation.song_name}</li>;
-                })
-              }
+            <ul className="nav nav-tabs">
+              <li><a>Annotations
+                <span className="badge">{this.state.user.annotations.length}</span>
+              </a></li>
             </ul>
+            <div className="annotations-feed">
+              <div className="annotations">
+                {
+                  this.state.user.annotations.map(function(annotation){
+                    return(
+                      <div className="annotation-feed-item">
+                        <blockquote>
+                          <p>{annotation.snippet}</p>
+                          <footer>
+                            {annotation.song_name} by {this.state.user.email}
+                          </footer>
+                        </blockquote>
+                        <p className="annotation-feed-annotation">
+                          {annotation.annotation}
+                        </p>
+                      </div>
+                    );
+                  }.bind(this))
+                }
+
+              </div>
+            </div>
           </div>
         </div>
       );

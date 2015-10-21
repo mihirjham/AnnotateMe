@@ -66,7 +66,10 @@
 
         this.history.pushState(null, "/songs/"+this.props.params.songId +
                                     "/annotations/new",
-                                    {start_index: startIndex, end_index: endIndex});
+                                    {start_index: startIndex,
+                                     end_index: endIndex,
+                                     snippet: this.state.song.lyrics.substring(startIndex, endIndex)
+                                    });
       }
     },
     handleAnnotationClick: function(annotation){

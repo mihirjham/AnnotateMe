@@ -240,8 +240,41 @@ h1.title_and_authors{
 
 .user_information{
   float: left;
+  padding: 15px 15px 15px 15px;
 }
 
 .user_activity{
   float: left;
+  padding-left: 50px;
+}
+
+.artist_image{
+  padding-bottom: 25px;
+}
+
+.badge {
+  display: inline;
+  font-size: 14px;
+  padding: 1px 6px;
+  background: #ffff64;
+  color: #000;
+  border-radius: 50%;
+}
+
+.nav-tabs > li > a{
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
+.annotations-feed{
+  max-width: 500px;
+}
+
+.annotation-feed-item{
+  border-bottom: 1px solid white;
+}
+
+.annotation-feed-item > p{
+  text-align: center;
 }

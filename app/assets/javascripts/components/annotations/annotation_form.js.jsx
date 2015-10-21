@@ -25,6 +25,7 @@
           song_id: this.props.params.songId,
           start_index: this.props.location.query.start_index,
           end_index: this.props.location.query.end_index,
+          snippet: this.props.location.query.snippet,
           annotation: this.state.annotation
         };
 

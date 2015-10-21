@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020221202) do
+ActiveRecord::Schema.define(version: 20151020233117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20151020221202) do
     t.text     "annotation",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "snippet",     null: false
   end
 
   add_index "annotations", ["song_id"], name: "index_annotations_on_song_id", using: :btree

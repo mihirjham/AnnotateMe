@@ -10,10 +10,11 @@
 #  annotation  :text             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  snippet     :text             not null
 #
 
 class Annotation < ActiveRecord::Base
-  validates :song_id, :user_id, :start_index, :end_index, :annotation, presence: true
+  validates :song_id, :user_id, :start_index, :end_index, :annotation, :snippet, presence: true
   validate :annotation_exists
 
   belongs_to :song,
