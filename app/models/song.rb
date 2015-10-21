@@ -35,6 +35,8 @@ class Song < ActiveRecord::Base
 
   private
   def fix_song_url
+    return unless self.song_url
+    
     if self.song_url.match("youtube")
       url = self.song_url.dup
       url = "https://www.youtube.com/embed/#{url.split("=").last}"
