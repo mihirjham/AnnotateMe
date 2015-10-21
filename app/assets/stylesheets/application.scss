@@ -289,3 +289,18 @@ h1.title_and_authors{
 button{
   color: #000;
 }
+
+.media-player{
+  width: 560px;
+  height: 315px;
+  border: 1px solid white;
+  position: relative;
+  display: block;
+  margin-left: 250px;
+}
+
+.media-player > .add-song-button{
+  top: 40%;
+  left: 40%;
+  position: relative;
+}

@@ -10,6 +10,7 @@
               album_id: "",
               artist_name: "",
               artist_id: "",
+              song_url: "",
               artistResults: ArtistStore.all()};
     },
     componentDidMount: function(){
@@ -22,7 +23,9 @@
                       release_date: song.release_date,
                       album_id: song.album_id,
                       artist_id: song.artist_id,
-                      artist_name: song.artist_name});
+                      artist_name: song.artist_name,
+                      song_url: song.song_url
+                    });
       }
     },
     componentWillUnmount: function(){
@@ -35,7 +38,8 @@
           name: this.state.name,
           release_date: this.state.release_date,
           lyrics: this.state.lyrics,
-          album_id: this.state.album_id
+          album_id: this.state.album_id,
+          song_url: this.state.song_url
         };
 
         ApiUtil.editSong(parseInt(this.props.params.id), changes, this.state.artist_name);
@@ -46,6 +50,7 @@
           release_date: this.state.release_date,
           lyrics: this.state.lyrics,
           album_id: this.state.album_id,
+          song_url: this.state.song_url
         };
 
         ApiUtil.createSong(newSong, this.state.artist_name);
@@ -91,6 +96,13 @@
               <label>
                 Release Date:
                 <input type="date" valueLink={this.linkState("release_date")}/>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                Song URL(Youtube/SoundCloud):
+                <input type="text" valueLink={this.linkState("song_url")}/>
               </label>
             </div>
 

@@ -10,10 +10,12 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  artist_id    :integer          not null
+#  song_url     :string
 #
 
 class Song < ActiveRecord::Base
   validates :name, :lyrics, presence: true
+  before_save :fix_song_url
 
   has_many :annotations,
     class_name: "Annotation",
@@ -26,8 +28,19 @@ class Song < ActiveRecord::Base
     foreign_key: :artist_id,
     primary_key: :id
 
-  
+
   def self.find_by_substring(str)
     Song.where("LOWER(name) LIKE '%#{str.downcase}%'");
+  end
+
+  private
+  def fix_song_url
+    if self.song_url.match("youtube")
+      url = self.song_url.dup
+      url = "https://www.youtube.com/embed/#{url.split("=").last}"
+      self.song_url = url
+    else
+      self.song_url = nil
+    end
   end
 end

@@ -127,9 +127,18 @@
       this.formatText();
     },
     render: function(){
+      var mediaPlayer;
+      if(this.state.song.song_url === null){
+        mediaPlayer = <button className="add-song-button" onClick={this.handleEdit}>Add Song Link</button>;
+      }else {
+        mediaPlayer = <iframe width="560" height="315" src={this.state.song.song_url}/>;
+      }
       return(
         <div className="col-md-6">
           <div className="song_info">
+            <div className="media-player">
+              {mediaPlayer}
+            </div>
             <h1 className="title_and_authors">
               <span className="title">{this.state.song.name}</span>
               <span className="type">Lyrics</span>
