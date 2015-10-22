@@ -18,6 +18,10 @@
       return -1;
   };
 
+  var strSplice = function(str, index, count, add){
+    return str.slice(0, index) + (add || "") + str.slice(index + count);
+  };
+
   var SongDetail = root.SongDetail = React.createClass({
     mixins: [ReactRouter.History],
     getInitialState: function(){
@@ -120,11 +124,53 @@
           window.scrollTo(0, parseInt(this.props.location.query.pageYOffset));
         }
     },
+    formatComments: function(){
+      var comments = document.getElementsByClassName("comment");
+      for(var i = 0; i < comments.length; i++){
+        var comment = comments[i];
+        var content = comment.innerHTML;
+        var index = 0;
+
+        var urls = content.match(/(?:^|[^"'])(\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|])/gim);
+
+        if(urls === null){
+          continue;
+        }
+
+        urls.forEach(function(url){
+          var urlIndex = content.indexOf(url, index);
+
+          if(url.match(/\.(png|jpeg|jpg|gif)$/) === null){
+            if(content.indexOf("<a href", index) === -1){
+              content = strSplice(content, urlIndex, url.length, "<a href='" + url + "'>" + url + "</a>");
+              index += (url.length * 2) + 15;
+            }
+          }else{
+            if(content.indexOf("<img src", index) === -1){
+              content = strSplice(content, urlIndex, url.length, "<img src ='" + url + "' />");
+              index += url.length + 14;
+            }
+          }
+        });
+        comment.innerHTML = content;
+      }
+    },
     handleArtistClick: function(id){
       this.history.pushState(null, "/artists/" + id.toString());
     },
     componentDidUpdate: function () {
       this.formatText();
+      this.formatComments();
+    },
+    handleCommentCreate: function(comment, e){
+      e.preventDefault();
+      var newComment = {
+        comment: comment,
+        commentable_id: this.props.params.songId,
+        commentable_type: "Song"
+      };
+
+      ApiUtil.createComment(this.props.params.songId, newComment);
     },
     render: function(){
       var mediaPlayer;
@@ -152,6 +198,7 @@
             </div>
           </div>
           <button onClick={this.handleEdit}>Edit Song</button>
+          <CommentsIndex comments={this.state.song.comments} handleCommentCreate={this.handleCommentCreate} />
         </div>
       );
     }

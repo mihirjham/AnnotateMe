@@ -5,7 +5,7 @@ class Api::ArtistsController < ApplicationController
 
   def index
     if(params[:name])
-      @artists = Artist.includes(songs: [:annotations]).find_by_name(params[:name])
+      @artists = Artist.includes(songs: [:annotations, :comments]).find_by_name(params[:name])
       render :index
     end
   end
@@ -21,12 +21,12 @@ class Api::ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.includes(songs: [:annotations]).find(params[:id])
+    @artist = Artist.includes(songs: [:annotations, :comments]).find(params[:id])
     render :show
   end
 
   def update
-    @artist = Artist.includes(songs: [:annotations]).find(params[:id])
+    @artist = Artist.includes(songs: [:annotations, :comments]).find(params[:id])
 
     if @artist.update(artist_params)
       render :show

@@ -18,6 +18,8 @@ class Artist < ActiveRecord::Base
     primary_key: :id,
     dependent: :destroy
 
+  has_many :comments, as: :commentable, dependent: :destroy
+
   def self.find_by_name(name)
     Artist.where("LOWER(name) LIKE '%#{name.downcase}%'")
   end

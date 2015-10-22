@@ -28,6 +28,8 @@ class Song < ActiveRecord::Base
     foreign_key: :artist_id,
     primary_key: :id
 
+  has_many :comments, as: :commentable, dependent: :destroy
+
 
   def self.find_by_substring(str)
     Song.where("LOWER(name) LIKE '%#{str.downcase}%'");
@@ -36,7 +38,7 @@ class Song < ActiveRecord::Base
   private
   def fix_song_url
     return unless self.song_url
-    
+
     if self.song_url.match("youtube")
       url = self.song_url.dup
       url = "https://www.youtube.com/embed/#{url.split("=").last}"

@@ -170,6 +170,18 @@
           ApiActions.receiveUser(responseData);
         }
       });
+    },
+
+    createComment: function(id, comment){
+      $.ajax({
+        url: "/api/songs/" + id.toString() + "/comments",
+        type: "post",
+        dataType: "json",
+        data: {comment: comment},
+        success: function(responseData){
+          ApiActions.receiveSong(responseData);
+        }
+      });
     }
   };
 }(this));

@@ -4,9 +4,9 @@ class Api::SongsController < ApplicationController
 
   def index
     if(params[:search])
-      @songs = Song.includes(:annotations).find_by_substring(params[:search])
+      @songs = Song.includes(:annotations, comments: [:user]).find_by_substring(params[:search])
     else
-      @songs = Song.includes(:annotations).all
+      @songs = Song.includes(:annotations, comments: [:user]).all
     end
 
     render :index
@@ -27,7 +27,7 @@ class Api::SongsController < ApplicationController
   end
 
   def show
-    @song = Song.includes(:annotations, :artist).find(params[:id])
+    @song = Song.includes(:annotations, :artist, :comments).find(params[:id])
     @annotations = @song.annotations.order(:start_index)
 
     if @song

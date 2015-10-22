@@ -312,3 +312,41 @@ button{
     display: block;
     margin: 0 auto;
 }
+
+.comments-container{
+  float: left;
+  width: 560px;
+  background-color: rgba(153,153,153,.09);
+  padding: 0 10px 10px;
+}
+
+.comment-index-item{
+  padding: 10px 0 0;
+  margin: 0 -10px;
+  position: relative;
+  text-align: left;
+}
+
+.comment-index-item > a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.comment-form{
+  overflow: hidden;
+  word-wrap: break-word;
+  height: 100px;
+  width: 500px;
+  color: #ccc;
+  background-color: #626262;
+  font-size: 14px;
+}
+
+.comment img{
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 425px;
+    display: block;
+    margin: 0 auto;
+}
