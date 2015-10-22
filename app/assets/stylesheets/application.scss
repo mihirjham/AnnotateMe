@@ -303,3 +303,12 @@ button{
   left: 40%;
   position: relative;
 }
+
+.annotation-detail img{
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 425px;
+    display: block;
+    margin: 0 auto;
+}
