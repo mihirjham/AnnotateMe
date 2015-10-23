@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
   include Api::UsersHelper
+  before_action :redirect_if_logged_out
 
   def show
     @user = User.includes(:comments).find(params[:id])

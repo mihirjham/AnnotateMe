@@ -1,6 +1,6 @@
 class Api::SongsController < ApplicationController
   include Api::SongsHelper
-  before_action :redirect_if_logged_out, only: [:create, :update]
+  before_action :redirect_if_logged_out
 
   def index
     if(params[:search])

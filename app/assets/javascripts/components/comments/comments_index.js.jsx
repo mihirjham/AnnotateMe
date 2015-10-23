@@ -7,6 +7,7 @@
       }
       return(
         <div className="comments-container">
+          <h1>Comments</h1>
           <CommentForm handleCommentCreate={this.props.handleCommentCreate}/>
           {
             this.props.comments.map(function(comment){

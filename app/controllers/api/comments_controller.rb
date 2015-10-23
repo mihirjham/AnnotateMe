@@ -1,5 +1,7 @@
 class Api::CommentsController < ApplicationController
   include Api::CommentsHelper
+  before_action :redirect_if_logged_out
+
 
   def create
     @comment = current_user.comments.new(comment_params)
