@@ -343,10 +343,19 @@ button{
 }
 
 .comment img{
-    height: auto;
-    width: auto;
-    max-width: 100%;
-    max-height: 425px;
-    display: block;
-    margin: 0 auto;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 425px;
+  display: block;
+  margin: 0 auto;
+}
+
+.annotation-feed-annotation img{
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 425px;
+  display: block;
+  margin: 0 auto;
 }
