@@ -172,6 +172,9 @@
 
       ApiUtil.createComment(this.props.params.songId, newComment);
     },
+    handleDeleteComment: function(id){
+      ApiUtil.deleteComment(id);
+    },
     render: function(){
       var mediaPlayer;
       if(this.state.song.song_url === null){
@@ -198,7 +201,9 @@
             </div>
           </div>
           <button onClick={this.handleEdit}>Edit Song</button>
-          <CommentsIndex comments={this.state.song.comments} handleCommentCreate={this.handleCommentCreate} />
+          <CommentsIndex comments={this.state.song.comments}
+                         handleCommentCreate={this.handleCommentCreate}
+                         handleDeleteComment={this.handleDeleteComment}/>
         </div>
       );
     }

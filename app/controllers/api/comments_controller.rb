@@ -16,10 +16,18 @@ class Api::CommentsController < ApplicationController
 
   end
 
-  def update
-  end
-
   def destroy
+    @comment = Comment.find(params[:id])
+
+    if @comment.destroy
+      if @comment.commentable_type == "Song"
+        @song = @comment.commentable
+        @annotations = @song.annotations.order(:start_index)
+        render :show
+      end
+    else
+      render json: {errors: "Comment cannot be deleted"}, status: 422
+    end
   end
 
 end

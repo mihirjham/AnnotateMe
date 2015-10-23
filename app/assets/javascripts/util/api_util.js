@@ -182,6 +182,17 @@
           ApiActions.receiveSong(responseData);
         }
       });
+    },
+
+    deleteComment: function(id){
+      $.ajax({
+        url: "/api/comments/" + id.toString(),
+        type: "delete",
+        dataType: "json",
+        success: function(responseData){
+          ApiActions.receiveSong(responseData);
+        }
+      });
     }
   };
 }(this));

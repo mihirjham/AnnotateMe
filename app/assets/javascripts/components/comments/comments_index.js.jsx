@@ -10,8 +10,8 @@
           <CommentForm handleCommentCreate={this.props.handleCommentCreate}/>
           {
             this.props.comments.map(function(comment){
-              return <CommentIndexItem key={comment.id} comment={comment} />;
-            })
+              return <CommentIndexItem key={comment.id} comment={comment} handleDeleteComment={this.props.handleDeleteComment}/>;
+            }.bind(this))
           }
         </div>
       );
