@@ -5,3 +5,9 @@ json.songs do
     json.partial! "/api/songs/song", song: song, annotations: song.annotations.order(:start_index)
   end
 end
+
+json.comments do
+  json.array! artist.comments do |comment|
+    json.partial! "/api/comments/comment", comment: comment
+  end
+end

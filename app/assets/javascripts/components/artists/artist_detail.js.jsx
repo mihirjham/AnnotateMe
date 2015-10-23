@@ -24,6 +24,19 @@
         ApiUtil.editArtist(this.props.params.id, {cloudinary_url: result[0].secure_url});
       }.bind(this));
     },
+    handleCommentCreate: function(comment, e){
+      e.preventDefault();
+      var newComment = {
+        comment: comment,
+        commentable_id: this.props.params.id,
+        commentable_type: "Artist"
+      };
+
+      ApiUtil.createComment(this.props.params.id, newComment);
+    },
+    handleDeleteComment: function(id){
+      ApiUtil.deleteComment(id);
+    },
     render: function(){
       if(this.state.artist === undefined){
         return <div></div>;
@@ -47,6 +60,9 @@
               }
             </ul>
           </div>
+          <CommentsIndex comments={this.state.artist.comments}
+                         handleCommentCreate={this.handleCommentCreate}
+                         handleDeleteComment={this.handleDeleteComment}/>
         </div>
       );
     }

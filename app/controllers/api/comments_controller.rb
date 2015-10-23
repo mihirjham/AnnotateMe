@@ -9,6 +9,9 @@ class Api::CommentsController < ApplicationController
         @song = @comment.commentable
         @annotations = @song.annotations.order(:start_index)
         render :show
+      elsif @comment.commentable_type == "Artist"
+        @artist = @comment.commentable
+        render :show
       end
     else
       render json: {errors: @comment.errors.full_messages}, status: 422
@@ -23,6 +26,9 @@ class Api::CommentsController < ApplicationController
       if @comment.commentable_type == "Song"
         @song = @comment.commentable
         @annotations = @song.annotations.order(:start_index)
+        render :show
+      elsif @comment.commentable_type == "Artist"
+        @artist = @comment.commentable
         render :show
       end
     else

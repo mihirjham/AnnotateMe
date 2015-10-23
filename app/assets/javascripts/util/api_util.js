@@ -173,13 +173,26 @@
     },
 
     createComment: function(id, comment){
+      var url;
+      if(comment.commentable_type === "Song"){
+         url = "/api/songs/" + id.toString() + "/comments";
+      }
+      else if(comment.commentable_type == "Artist"){
+        url = "/api/artists/" + id.toString() + "/comments";
+      }
+
       $.ajax({
         url: "/api/songs/" + id.toString() + "/comments",
         type: "post",
         dataType: "json",
         data: {comment: comment},
         success: function(responseData){
-          ApiActions.receiveSong(responseData);
+          if(comment.commentable_type == "Song"){
+            ApiActions.receiveSong(responseData);
+          }
+          else if(comment.commentable_type == "Artist"){
+            ApiActions.receiveArtists([responseData]);
+          }
         }
       });
     },
@@ -190,7 +203,12 @@
         type: "delete",
         dataType: "json",
         success: function(responseData){
-          ApiActions.receiveSong(responseData);
+          if(responseData.artist_name !== undefined){
+            ApiActions.receiveSong(responseData);
+          }
+          else{
+            ApiActions.receiveArtists([responseData]);
+          }
         }
       });
     }
