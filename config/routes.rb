@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "static_pages#root"
+  get '/.well-known/acme-challenge/:id' => "static_pages#letsencrypt"
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
   namespace :api, defaults: {format: :json} do
